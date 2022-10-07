@@ -7,7 +7,7 @@ const CONSTRAINTS = {
     MOBILE: 'MOBILE',
     CUSTOM_FUNCTION: 'CUSTOM_FUNCTION',
     NUMBER: 'NUMBER',
-    MIN: 'MIN',
+    MIN_LENGTH: 'MIN_LENGTH',
     MAX_LENGTH: 'MAX_LENGTH'
 }
 
@@ -46,7 +46,7 @@ export const validate = (value, constraints=[]) => {
             case CONSTRAINTS.NUMBER:
                 validity = createValidityObject(checkOnlyNumber(value), CONSTRAINTS.NUMBER, constraints[i].errorMessage);
                 break;
-            case CONSTRAINTS.MIN:
+            case CONSTRAINTS.MIN_LENGTH:
                 validity = createValidityObject(checkMin(value, constraints[i].length), CONSTRAINTS.NUMBER, constraints[i].errorMessage);
                 break;
             case CONSTRAINTS.MAX_LENGTH:
