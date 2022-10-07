@@ -27,3 +27,4 @@ Some points on the implementation
       MAX_LENGTH - Maximum Length
 2. Please go through the UserForm.js to see how the form constraints are passed
 3. Implementation related to Screens and navigation can be found in Navigator.js
+4. Screenshots can be found in the ScreenShots folder
