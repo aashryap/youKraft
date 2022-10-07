@@ -1,0 +1,23 @@
+Q. What are microtasks? What is a microtask queue? What is their role in Promises and how are they different from callbacks?
+
+    Microtask are the task that are meant to run as soon as the current call stack becomes empty. 
+    Microtask are enqued in the queue as soon as they are completed, so that event loop can pick them up and run them as soon as current execution stack is empty,
+    this queue is called as Microtask Queue.
+    Promises are use to handle asynchronous task, promise callbacks are queued into the Microtask Queues.
+
+    example 
+    promise
+    .then(() => console.log("PROMISE RESOLVED 1"))
+    .then(() => console.log("PROMISE RESOLVED 2))
+    .then(() => console.log("PROMISE RESOLVED 3))
+
+    console.log("THIS WILL RUN FIRST");
+
+    o/p
+    THIS WILL RUN FIRST
+    PROMISE RESOLVED 1
+    PROMISE RESOLVED 2
+    PROMISE RESOLVED 3
+
+    Microtask Queue will look like - [() => console.log("PROMISE RESOLVED 1"), () => console.log("PROMISE RESOLVED 2"), () => console.log("PROMISE RESOLVED 3")]
+
