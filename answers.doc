@@ -21,3 +21,64 @@ Q. What are microtasks? What is a microtask queue? What is their role in Promise
 
     Microtask Queue will look like - [() => console.log("PROMISE RESOLVED 1"), () => console.log("PROMISE RESOLVED 2"), () => console.log("PROMISE RESOLVED 3")]
 
+
+Q. Private and protected variable in the class 
+
+    Public Variable - Public variable can be accessed outside the class from which objct is created
+    Private Variable - Private variable can only be used inside the class from which object is created
+    Protected Variable - Protected variable can only be used inside the class from which the object is created and also from the class that inherits the creator class.
+
+    Example of public variable
+
+    class PublicClass {
+        publicVariable = 123;
+
+        setPublicVariable(val) {
+            this.publicVariable = val;
+        }
+
+        getPublicVariable() {
+            return this.publicVariable;
+        }
+    }
+
+    let publicClassObject = new PublicClass();
+    publicClassObject.setPublicVariable(5555) // This will set the publicVaribale 
+    console.log("GETTER FUNCTION ",publicClassObject.getPublicVariable()) // This wlll get the public variable
+    console.log("Direct access", publicClassObject.publicVariable) // Directly accessing the public varibale
+
+
+    O/P 
+    GETTER FUNCTION 5555;
+    Direct access 5555
+
+    In above example the publicVariable is of type public because of which its is accesible directly with the name
+
+    class PrivateVariable {
+        #privateVariable;
+
+        setPrivateVariable(val) {
+            this.#privateVariable = val;
+        }
+
+				getPrivateVariable() {
+            return this.#privateVariable;
+        }
+    }
+
+    let privateVariableObject = new PrivateVariable();
+    privateVariableObject.setPrivateVariable(8888) // This will set the publicVaribale 
+    console.log("GETTER FUNCTION ",privateVariableObject.getPrivateVariable()) // This wlll get the public variable
+    console.log("Direct access", privateVariableObject.#privateVariable) // Directly accessing the public varibale  
+
+
+
+    O/p
+    GETTER FUNCTION 8888;
+    Direct access Uncaught SyntaxError: Private field '#privateVariable' must be declared in an enclosing class
+    
+    In above example the privateVariable is of type private because of which accessing it is throwing error 
+    Private variable starts with #
+
+
+
